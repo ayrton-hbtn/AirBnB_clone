@@ -2,11 +2,8 @@
 '''
 '''
 import cmd
-import models
-from models.base_model import BaseModel
-
-dict_of_classes = {'BaseModel': BaseModel}
-
+from models import storage
+from models.engine import classes
 
 class HBNBCommand(cmd.Cmd):
     '''
@@ -31,8 +28,8 @@ class HBNBCommand(cmd.Cmd):
             if len(arguments) == 0:
                 print("** class name missing **")
                 return False
-            if arguments[0] in dict_of_classes:
-                obj = dict_of_classes[arguments[0]]()
+            if arguments[0] in classes:
+                obj = classes[arguments[0]]()
             else:
                 print("** class doesn't exist **")
                 return False
@@ -47,14 +44,14 @@ class HBNBCommand(cmd.Cmd):
         if len(arguments) == 0:
             print("** class name missing **")
             return False
-        if arguments[0] not in dict_of_classes:
+        if arguments[0] not in classes:
             print("** class doesn't exist **")
             return False
         if len(arguments) < 2:
             print("** instance id missing **")
             return False
         key = "{}.{}".format(arguments[0], arguments[1])
-        st = models.storage.all()
+        st = storage.all()
         if key not in st:
             print("** no instance found **")
             return False
@@ -62,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         ''' Prints all string representation of all instances based '''
-        print(models.storage.all())
+        print(storage.all())
 
 
 if __name__ == '__main__':

@@ -2,10 +2,7 @@
 '''
 '''
 import json
-from models.base_model import BaseModel
-from models.user import User
-
-dict_of_classes = {"BaseModel": BaseModel, "User": User}
+from models.engine import classes
 
 class FileStorage:
     ''' File Storage '''
@@ -39,6 +36,8 @@ class FileStorage:
                 obj_dict = json.loads(f.read())
                 for key, value in obj_dict.items():
                     class_name = key.split(".")[0]
-                    self.__objects[key] = dict_of_classes[class_name](**value)
+                    print("creating a {}".format(class_name))
+                    print("key is {}".format(key))
+                    self.__objects[key] = classes[class_name](**value)
         except FileNotFoundError:
             pass
