@@ -72,6 +72,28 @@ class HBNBCommand(cmd.Cmd):
             if key.startswith(class_n):
                 print(value)
 
+    def do_destroy(self, args):
+        ''' destroy '''
+        arguments = args.split()
+        if len(arguments) == 0:
+            print("** class name missing **")
+            return False
+        if arguments[0] not in classes:
+            print("** class doesn't exist **")
+            return False
+        if len(arguments) < 2:
+            print("** instance id missing **")
+            return False
+        key = "{}.{}".format(arguments[0], arguments[1])
+        if key not in storage.all():
+            print("** no instance found **")
+            return False
+        storage.delete(key)
+
+    def do_update(self, args):
+        ''' update '''
+        arguments = args.split()
+
 
 
 if __name__ == '__main__':
