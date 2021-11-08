@@ -2,7 +2,6 @@
 '''
 '''
 import json
-
 from models.base_model import BaseModel
 
 class FileStorage:
@@ -27,7 +26,7 @@ class FileStorage:
         for key, value in self.__objects.items():
             obj_dict[key] = value.to_dict()
         st = json.dumps(obj_dict)
-        with open(self.__file_path, "w+") as f:
+        with open(self.__file_path, "w") as f:
             f.write(st)
 
     def reload(self):
@@ -36,6 +35,6 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 obj_dict = json.loads(f.read())
                 for key, value in obj_dict.items():
-                    self.__objects[key] = bm.BaseModel(**value)
+                    self.__objects[key] = BaseModel(**value)
         except FileNotFoundError:
             pass
