@@ -59,7 +59,19 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         ''' Prints all string representation of all instances based '''
-        print(storage.all())
+        arguments = args.split()
+        if len(arguments) == 0:
+            for key, value in storage.all().items():
+                print(value)
+            return False
+        class_n = arguments[0]
+        if class_n not in classes:
+                print("** class doesn't exist **")
+                return False
+        for key, value in storage.all().items():
+            if key.startswith(class_n):
+                print(value)
+
 
 
 if __name__ == '__main__':
