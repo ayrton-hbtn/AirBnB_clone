@@ -60,6 +60,10 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(st[key])
 
+    def do_all(self, args):
+        ''' Prints all string representation of all instances based '''
+        print(models.storage.all())
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
