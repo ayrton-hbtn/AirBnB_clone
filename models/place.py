@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-'''
+'''Place class, inherits from BaseModel
 '''
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    '''
+    '''Creates a new instance of Place, inherits
+    instantiation from BaseModel
     '''
     def __init__(self, *args, **kwargs):
         self.city_id = ""

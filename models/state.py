@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""
-    
-    module
-    return: nothing
-"""
+'''State class, inherits from BaseModel
+'''
 from models.base_model import BaseModel
 
+
 class State(BaseModel):
-    ''' state '''
+    '''Creates a new instance of State with single
+    attribute name as empty string, inherits instantiation
+    from BaseModel
+    '''
     def __init__(self, *args, **kwargs):
         self.name = ""
         super().__init__(self, **kwargs)
