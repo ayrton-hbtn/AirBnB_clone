@@ -37,7 +37,3 @@ class BaseModel:
     def __str__(self):
         p = f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
         return p
-
-    def update(self):
-        ''' set update time '''
-        self.updated_at = datetime.now()

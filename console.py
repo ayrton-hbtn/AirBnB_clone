@@ -142,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return False
         setattr(storage.all()[key], arguments[2], arguments[3])
-        storage.all()[key].update()
+        storage.all()[key].save()
         storage.save()
     
 
