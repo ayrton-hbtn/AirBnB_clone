@@ -23,15 +23,17 @@ class HBNBCommand(cmd.Cmd):
             "all":self.do_all,
             "count":count_class,
             "show":self.do_show,
-            "create":self.do_create
+            "create":self.do_create,
+            "destroy":self.do_destroy,
+            "update":self.do_update
         }
-        args = arg.split(".")
+        args = arg.split(".", 1)
         f_class = args[0]
         if (f_class in classes) and len(args) >= 2:
-            args = args[1].split("(")
+            args = "".join(args[1:]).split("(")
             f_func = args[0]
             if (f_func in fun_dict) and len(args) >= 2:
-                f_args = " ".join(tuple(args[1][:-1].split(", ")))
+                f_args = " ".join(tuple("".join(args[1:])[:-1].split(", ")))
                 fun_dict[f_func]("{} {}".format(f_class, f_args))
                 return False
         print("*** Unknown syntax: {}".format(arg))
@@ -140,6 +142,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return False
         setattr(storage.all()[key], arguments[2], arguments[3])
+        storage.save()
     
 
 
