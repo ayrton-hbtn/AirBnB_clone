@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""
-    
-    module
-    return: nothing
-"""
+'''
+'''
 from models.base_model import BaseModel
 
-class State(BaseModel):
-    ''' state '''
+
+class Review(BaseModel):
+    '''
+    '''
     def __init__(self, *args, **kwargs):
-        self.name = ""
+        self.place_id = ""
+        self.user_id = ""
+        self.text = ""
         super().__init__(self, **kwargs)
