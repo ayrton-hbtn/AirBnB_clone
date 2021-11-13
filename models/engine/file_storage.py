@@ -43,6 +43,7 @@ class FileStorage:
             pass
 
     def delete(self, key=""):
+        """Deletes an instance """
         if key in self.__objects:
             del self.__objects[key]
             self.save()
