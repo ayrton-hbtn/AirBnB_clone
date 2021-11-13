@@ -5,6 +5,7 @@ import cmd
 from models import storage
 from models.engine import classes
 
+
 def count_class(st):
     args = st.split()
     out = 0
@@ -12,20 +13,22 @@ def count_class(st):
         if a.startswith(args[0]):
             out += 1
     print(out)
+
+
 class HBNBCommand(cmd.Cmd):
-    '''
+    '''Console to manipulate all the objects in the program
     '''
     prompt = "(hbnb) "
 
     def default(self, arg):
-        ''' default '''
+        ''' default method '''
         fun_dict = {
-            "all":self.do_all,
-            "count":count_class,
-            "show":self.do_show,
-            "create":self.do_create,
-            "destroy":self.do_destroy,
-            "update":self.do_update
+            "all": self.do_all,
+            "count": count_class,
+            "show": self.do_show,
+            "create": self.do_create,
+            "destroy": self.do_destroy,
+            "update": self.do_update
         }
         args = arg.split(".", 1)
         f_class = args[0]
@@ -42,16 +45,17 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         '''End of file, exits'''
         return True
-    
+
     def do_quit(self, line):
         '''Quit command to exit the program'''
         return True
 
     def emptyline(self):
+        ''' empty line in the cmd, does nothing '''
         return cmd.Cmd.emptyline(self)
 
     def do_create(self, args):
-        ''' create '''
+        ''' command to create a new instance of class '''
         try:
             arguments = args.split()
             if len(arguments) == 0:
@@ -68,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
             raise
 
     def do_show(self, args):
-        ''' show an instance '''
+        ''' shows an instance of class '''
         arguments = args.split()
         if len(arguments) == 0:
             print("** class name missing **")
@@ -87,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
         print(st[key])
 
     def do_all(self, args):
-        ''' Prints all string representation of all instances based '''
+        ''' Prints string representation of all instances stored '''
         arguments = args.split()
         if len(arguments) == 0:
             for key, value in storage.all().items():
@@ -95,14 +99,14 @@ class HBNBCommand(cmd.Cmd):
             return False
         class_n = arguments[0]
         if class_n not in classes:
-                print("** class doesn't exist **")
-                return False
+            print("** class doesn't exist **")
+            return False
         for key, value in storage.all().items():
             if key.startswith(class_n):
                 print(value)
 
     def do_destroy(self, args):
-        ''' destroy '''
+        ''' destroys an instance '''
         arguments = args.split()
         if len(arguments) == 0:
             print("** class name missing **")
@@ -120,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
         storage.delete(key)
 
     def do_update(self, args):
-        ''' update '''
+        ''' updates instance attributes '''
         arguments = args.split()
         if len(arguments) == 0:
             print("** class name missing **")
@@ -144,7 +148,6 @@ class HBNBCommand(cmd.Cmd):
         setattr(storage.all()[key], arguments[2], arguments[3])
         storage.all()[key].save()
         storage.save()
-    
 
 
 if __name__ == '__main__':

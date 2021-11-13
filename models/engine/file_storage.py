@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-'''
+'''File Storage Class, to do JSON
+serialization/deserialization
 '''
 import json
 from models.engine import classes
+
 
 class FileStorage:
     ''' File Storage '''
@@ -10,7 +12,7 @@ class FileStorage:
         ''' init '''
         self.__file_path = "file.json"
         self.__objects = {}
-    
+
     def all(self):
         ''' returns the dictionary __objects '''
         return self.__objects
@@ -19,7 +21,7 @@ class FileStorage:
         ''' sets in __objects the obj with key <obj class name>.id '''
         key = str(obj.__class__.__name__) + "." + str(obj.id)
         self.__objects[key] = obj
-    
+
     def save(self):
         ''' serializes __objects to the JSON file '''
         obj_dict = {}

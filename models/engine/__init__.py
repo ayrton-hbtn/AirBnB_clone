@@ -9,7 +9,7 @@ from models.place import Place
 from models.review import Review
 
 classes = {
-    "BaseModel": BaseModel, 
+    "BaseModel": BaseModel,
     "User": User,
     "State": State,
     "City": City,
