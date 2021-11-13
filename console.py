@@ -7,6 +7,7 @@ from models.engine import classes
 
 
 def count_class(st):
+    """ count amount of <class(st)> instances """
     args = st.split()
     out = 0
     for a in storage.all():
