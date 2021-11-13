@@ -19,7 +19,8 @@ class Tester(unittest.TestCase):
         self.assertIsNotNone(BaseModel.to_dict.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
 
-    def test_default(self):
+    def test_type(self):
+        """Test type of new instance """
         i = BaseModel()
         self.assertEqual(type(i), BaseModel)
 
@@ -30,6 +31,7 @@ class Tester(unittest.TestCase):
         self.assertEqual(string, str(i))
 
     def test_to_dict(self):
+        """Test to_dict() method of BaseClass """
         model = BaseModel()
         model.name = "My First Model"
         model.my_number = 89
