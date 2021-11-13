@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''
+'''Console to manage program objects and data
 '''
 import cmd
 from models import storage
@@ -7,6 +7,9 @@ from models.engine import classes
 
 
 def count_class(st):
+    '''Count how many instances of a class there is
+    and print it to stdout
+    '''
     args = st.split()
     out = 0
     for a in storage.all():
@@ -21,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def default(self, arg):
-        ''' default method '''
+        '''default method '''
         fun_dict = {
             "all": self.do_all,
             "count": count_class,
@@ -51,11 +54,11 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        ''' empty line in the cmd, does nothing '''
+        '''Empty line in the cmd, does nothing '''
         return cmd.Cmd.emptyline(self)
 
     def do_create(self, args):
-        ''' command to create a new instance of class '''
+        '''Command to create a new instance of class '''
         try:
             arguments = args.split()
             if len(arguments) == 0:
@@ -72,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
             raise
 
     def do_show(self, args):
-        ''' shows an instance of class '''
+        '''Shows an instance of class '''
         arguments = args.split()
         if len(arguments) == 0:
             print("** class name missing **")
@@ -91,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
         print(st[key])
 
     def do_all(self, args):
-        ''' Prints string representation of all instances stored '''
+        '''Prints string representation of all instances stored '''
         arguments = args.split()
         if len(arguments) == 0:
             for key, value in storage.all().items():
@@ -106,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
                 print(value)
 
     def do_destroy(self, args):
-        ''' destroys an instance '''
+        '''Destroys an instance '''
         arguments = args.split()
         if len(arguments) == 0:
             print("** class name missing **")
@@ -124,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
         storage.delete(key)
 
     def do_update(self, args):
-        ''' updates instance attributes '''
+        '''Updates instance attributes '''
         arguments = args.split()
         if len(arguments) == 0:
             print("** class name missing **")
