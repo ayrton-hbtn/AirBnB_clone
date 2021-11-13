@@ -19,9 +19,9 @@ class Tester(unittest.TestCase):
         self.assertTrue(len(base_model.BaseModel.__doc__) > 0)
 
     def test_doc_save(self):
-        """ test for module documentation """
+        """ test for method <save> documentation """
         self.assertTrue(len(base_model.BaseModel.save.__doc__) > 0)
 
     def test_doc_to_dict(self):
-        """ test for module documentation """
+        """ test for method <to dict> documentation """
         self.assertTrue(len(base_model.BaseModel.to_dict.__doc__) > 0)
