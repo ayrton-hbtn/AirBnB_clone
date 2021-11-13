@@ -6,6 +6,8 @@
 """
 import unittest
 from models.base_model import BaseModel
+import pep8
+
 
 class Tester(unittest.TestCase):
     """ Test class """
@@ -32,8 +34,16 @@ class Tester(unittest.TestCase):
         model.name = "My First Model"
         model.my_number = 89
         model_dict = model.to_dict()
-        keys = ["id", "name", "my_number", "created_at", "updated_at", "__class__"]
+        keys = ["id", "name", "my_number", "created_at",
+                "updated_at", "__class__"]
         self.assertCountEqual(model_dict.keys(), keys)
         self.assertEqual(model_dict["__class__"], "BaseModel")
         self.assertEqual(model_dict["name"], "My First Model")
         self.assertEqual(model_dict["my_number"], 89)
+
+    def test_pep8(self):
+        """Test that file is PEP8 compliant """
+        pep8_style = pep8.StyleGuide(quiet=True)
+        result = pep8_style.check_files(["models/base_model.py"])
+        self.assertEqual(result.total_errors,
+                         0, "Found code style errors and warnings.")
