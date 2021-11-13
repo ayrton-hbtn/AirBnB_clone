@@ -5,10 +5,7 @@ from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    '''Creates instance of Amenity with an empty
-    string as name, and inherits instantiation method
-    from BaseModel
+    '''Amenity with public class attribute name,
+    inherits instantiation from BaseModel
     '''
-    def __init__(self, *args, **kwargs):
-        self.name = ""
-        super().__init__(self, **kwargs)
+    name = ""
