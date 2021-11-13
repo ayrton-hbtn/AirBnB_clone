@@ -5,23 +5,35 @@
     return: nothing
 """
 import unittest
-from models import base_model
+from models.base_model import BaseModel
 
 class Tester(unittest.TestCase):
     """ Test class """
+    def test_docstring(self):
+        """ Test doc strings """
+        self.assertIsNotNone(BaseModel.__doc__)
+        self.assertIsNotNone(BaseModel.__init__.__doc__)
+        self.assertIsNotNone(BaseModel.__str__.__doc__)
+        self.assertIsNotNone(BaseModel.to_dict.__doc__)
+        self.assertIsNotNone(BaseModel.save.__doc__)
 
-    def test_doc_module(self):
-        """ test for module documentation """
-        self.assertTrue(len(base_model.__doc__) > 0)
+    def test_default(self):
+        i = BaseModel()
+        self.assertEqual(type(i), BaseModel)
 
-    def test_doc_class(self):
-        """ test for class documentation """
-        self.assertTrue(len(base_model.BaseModel.__doc__) > 0)
+    def test_str(self):
+        """ Test output of str method """
+        i = BaseModel()
+        string = f"[{type(i).__name__}] ({i.id}) {i.__dict__}"
+        self.assertEqual(string, str(i))
 
-    def test_doc_save(self):
-        """ test for method <save> documentation """
-        self.assertTrue(len(base_model.BaseModel.save.__doc__) > 0)
-
-    def test_doc_to_dict(self):
-        """ test for method <to dict> documentation """
-        self.assertTrue(len(base_model.BaseModel.to_dict.__doc__) > 0)
+    def test_to_dict(self):
+        model = BaseModel()
+        model.name = "My First Model"
+        model.my_number = 89
+        model_dict = model.to_dict()
+        keys = ["id", "name", "my_number", "created_at", "updated_at", "__class__"]
+        self.assertCountEqual(model_dict.keys(), keys)
+        self.assertEqual(model_dict["__class__"], "BaseModel")
+        self.assertEqual(model_dict["name"], "My First Model")
+        self.assertEqual(model_dict["my_number"], 89)

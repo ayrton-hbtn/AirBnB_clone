@@ -16,6 +16,8 @@ class BaseModel:
     it to storage.
     '''
     def __init__(self, *args, **kwargs):
+        """Instantiation from a dictionary, if no dict is passed
+        creates new instance"""
         if kwargs is not None and len(kwargs) >= 1:
             date = "%Y-%m-%dT%H:%M:%S.%f"
             for key, val in kwargs.items():
