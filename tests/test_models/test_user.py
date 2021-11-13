@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    base_model tester
+    user tester
     module
     return: nothing
 """
