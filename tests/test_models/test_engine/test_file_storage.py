@@ -10,6 +10,7 @@ from models.engine.file_storage import FileStorage
 import json
 import pep8
 
+
 class Tester(unittest.TestCase):
     """ Test FileStorage class """
     def test_docstring(self):
@@ -22,3 +23,15 @@ class Tester(unittest.TestCase):
         self.assertIsNotNone(FileStorage.delete.__doc__)
 
     def test_isinstance(self):
+        self.assertEqual(type(FileStorage()), FileStorage)
+
+    def test_all(self):
+        obj_dict = FileStorage().all()
+        self.assertEqual(type(obj_dict), dict)
+
+    def test_new(self):
+        model = BaseModel()
+        FileStorage().new(model)
+        obj_key = "BaseModel." + model.id
+        dict_obj = FileStorage().all()
+        self.assertIn(obj_key, dict_obj.keys())
