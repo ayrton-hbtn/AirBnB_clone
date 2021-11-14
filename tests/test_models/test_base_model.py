@@ -49,3 +49,17 @@ class Tester(unittest.TestCase):
         result = pep8_style.check_files(["models/base_model.py"])
         self.assertEqual(result.total_errors,
                          0, "Found code style errors and warnings.")
+
+    def test_save(self):
+        """Test save method"""
+        model = BaseModel()
+
+        created_at_1 = model.created_at
+        updated_at_1 = model.updated_at
+        model.save()
+
+        created_at_2 = model.created_at
+        updated_at_2 = model.updated_at
+
+        self.assertEqual(created_at_1, created_at_2)
+        self.assertNotEqual(updated_at_1, updated_at_2)
