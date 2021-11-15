@@ -30,8 +30,7 @@ class Tester(unittest.TestCase):
 
     def test_new(self):
         model = BaseModel()
-        sto = FileStorage()
-        sto.new(model)
+        FileStorage().new(model)
         obj_key = "BaseModel." + model.id
-        dict_obj = sto.all()
+        dict_obj = FileStorage().all()
         self.assertIn(obj_key, dict_obj.keys())
