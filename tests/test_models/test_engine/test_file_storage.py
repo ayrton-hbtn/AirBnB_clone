@@ -8,7 +8,6 @@ import unittest
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import json
-import pep8
 
 
 class Tester(unittest.TestCase):
@@ -31,7 +30,8 @@ class Tester(unittest.TestCase):
 
     def test_new(self):
         model = BaseModel()
-        FileStorage().new(model)
+        sto = FileStorage()
+        sto.new(model)
         obj_key = "BaseModel." + model.id
-        dict_obj = FileStorage().all()
+        dict_obj = sto.all()
         self.assertIn(obj_key, dict_obj.keys())
