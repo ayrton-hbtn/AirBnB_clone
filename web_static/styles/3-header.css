@@ -7,5 +7,5 @@ header {
     align-items: center;
     background-image: url("../images/logo.png");
     background-repeat: no-repeat;
-    background-position: left center;
+    background-position: left 20px center;
 }
