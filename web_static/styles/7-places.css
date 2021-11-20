@@ -7,10 +7,9 @@
 }
 
 .places h1 {
-    display: block;
+	display: block;
 	text-align: left;
 	width: 95%;
-	display: block;
 	margin-top: 0px;
 	margin-left: 20px;
 	margin-bottom: 5px;
@@ -18,12 +17,12 @@
 }
 
 .places article {
-    width: 390px;
-    padding: 20px;
-    margin: 20px;
-    border: 1px solid #FF5A5F;
-    border-radius: 4px;
-    display: flex;
+	width: 390px;
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #FF5A5F;
+	border-radius: 4px;
+	display: flex;
 	flex: none;
 	flex-wrap: wrap;
 	flex-direction: row;
@@ -31,7 +30,7 @@
 }
 
 .places article h2 {
-    font-size: 30px;
-    margin: 10px auto;
+	font-size: 30px;
+	margin: 10px auto;
 	padding: 0px;
 }
