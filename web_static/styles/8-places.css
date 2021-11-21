@@ -65,27 +65,27 @@
 
 .max_guest {
     display: inline-block;
-	background-image: url("../images/icon_group.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	width: 100px;
-	height: 50px;
+    background-image: url("../images/icon_group.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 50px;
 }
 
 .number_rooms {
-	display: inline-block;
-	background-image: url("../images/icon_bed.png");
-	background-repeat: no-repeat;
-	background-position: center;
+    display: inline-block;
+    background-image: url("../images/icon_bed.png");
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100px;
     height: 50px;
 }
 
 .number_bathrooms {
-	display: inline-block;
-	background-image: url("../images/icon_bath.png");
-	background-repeat: no-repeat;
-	background-position: center;
+    display: inline-block;
+    background-image: url("../images/icon_bath.png");
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100px;
     height: 50px;
 }
