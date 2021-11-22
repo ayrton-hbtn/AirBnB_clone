@@ -1,4 +1,4 @@
-.container .filters {
+.filters {
     background-color: white;
     height: 70px;
     width: 100%;
@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.container .filters button {
+.filters button {
     font-size: 18px;
     background-color: #FF5A5F;
     color: #FFFFFF;
@@ -20,50 +20,50 @@
     margin-left: auto;
 }
 
-.container .filters button:hover {
+.filters button:hover {
     opacity: 90%;
 }
 
-.container .filters .locations, .amenities {
-    height: 100%;
+.filters .locations, .amenities {
     width: 25%;
-}
-
-.container .filters .locations {
-    border-right: 1px solid #DDDDDD;
-}
-
-.container .filters h3 {
-    font-weight: 600;
-    margin: 15px 0 0 10%;
-}
-
-.container .filters h4 {
-    font-weight: 400;
-    font-size: 14px;
-    margin: 0 auto 0 10%;
     position: relative;
 }
 
-.container .filters .popover {
+.filters .locations {
+    border-right: 1px solid #DDDDDD;
+}
+
+.filters h3 {
+    font-weight: 600;
+    margin: 15px 0 0 20px;
+}
+
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 0 20px 20px;
+}
+
+.filters .popover {
     background-color: #FAFAFA;
     width: 92%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    margin-top: 20px;
+    margin: 0;
     padding-left: 20px;
+    padding-bottom: 5px;
     display: none;
     /* To make dropdown appear avobe everything else */
     z-index: 10;
-    position: relative;
+    position: absolute;
 }
 
-.container .filters .popover h2 {
+.filters .popover h2 {
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-.container .filters .popover li {
+.filters .popover li {
     list-style: none;
 }
 
